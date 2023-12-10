@@ -185,7 +185,7 @@
 </section>
 
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -240,7 +240,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="section">
@@ -251,31 +251,12 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Neural radiance fields (NeRF) is a promising approach for generating photorealistic images and representing complex scenes. However, when processing data sequentially, it can suffer from catastrophic forgetting, where previous
+data is easily forgotten after training with new data. Existing incremental learning methods using knowledge distillation assume that continuous data chunks contain both 2D images and corresponding camera pose parameters, preestimated
+from the complete dataset. This poses a paradox as the necessary camera pose must be estimated from the entire dataset, even though the data arrives sequentially and future chunks are inaccessible. In contrast, we focus on
+a practical scenario where camera poses are unknown. We propose IL-NeRF, a novel framework for incremental NeRF training, to address this challenge. IL-NeRF’s key idea lies
+in selecting a set of past camera poses as references to initialize and align the camera poses of incoming image data. This is followed by a joint optimization of camera poses and
+replay-based NeRF distillation. Our experiments on realworld indoor and outdoor scenes show that IL-NeRF handles incremental NeRF training and outperforms the baselinesby up to 54.04% in rendering quality
           </p>
         </div>
       </div>
